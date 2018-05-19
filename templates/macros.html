@@ -1,0 +1,30 @@
+{%  macro render_field(field) %}
+    <div class="field">
+        {% if field.errors %}
+        {% for error in field.errors %}
+            <div class="notification error">{{ error }}</div>
+        {% endfor %}
+        {% endif %}
+        {{ field(placeholder=field.label.text) }}
+    </div>
+{% endmacro %}
+
+
+{% macro hide_email(x) %}
+<div>
+  {% set m = x.split('@') %}
+  {% set l = m[0]|join('') %}
+  {% set len = l|length - 1   %}
+  {% set r = l[0] + '*'*len + '@' + m[1] %}
+  {{ r }}
+</div>
+{%  endmacro %}
+
+
+{% macro hide_emails(x) %}
+<div>
+    {% set len = x.split('@')[0]|length - 1 %}
+    {% set res = x[0] + '*'*len + '@' + x.split('@')[1] %}
+    {{ res }}
+</div>
+{%  endmacro %}
