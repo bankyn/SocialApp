@@ -1,2 +1,2 @@
-# SocialApp with flask
-using peewee, UserMixin, bycrypt
+# Web Aplication with the python Flask framework
+
